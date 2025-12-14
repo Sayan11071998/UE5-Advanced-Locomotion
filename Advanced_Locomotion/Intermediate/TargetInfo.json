@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Advanced_Locomotion",
+			"Path": "..\\Source\\Advanced_Locomotion.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Advanced_LocomotionEditor",
+			"Path": "..\\Source\\Advanced_LocomotionEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

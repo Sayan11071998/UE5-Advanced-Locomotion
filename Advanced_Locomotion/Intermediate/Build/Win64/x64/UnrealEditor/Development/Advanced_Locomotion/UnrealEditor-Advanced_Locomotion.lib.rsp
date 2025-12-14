@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Advanced_Locomotion.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/x64/Advanced_LocomotionEditor/Development/UnrealEd/SharedPCH.UnrealEd.Project.ValApi.ValExpApi.Cpp20.h.obj"
+"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/x64/UnrealEditor/Development/Advanced_Locomotion/Advanced_Locomotion.cpp.obj"
+"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/x64/UnrealEditor/Development/Advanced_Locomotion/PerModuleInline.gen.cpp.obj"
+"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/x64/UnrealEditor/Development/Advanced_Locomotion/Default.rc2.res"
+/OUT:"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/x64/UnrealEditor/Development/Advanced_Locomotion/UnrealEditor-Advanced_Locomotion.lib"

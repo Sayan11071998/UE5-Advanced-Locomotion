@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\sayan\\Projects\\UE5-Advanced-Locomotion\\Advanced_Locomotion\\Source\\Advanced_Locomotion\\Advanced_Locomotion.Build.cs",
+		"C:\\Users\\sayan\\Projects\\UE5-Advanced-Locomotion\\Advanced_Locomotion\\Source\\Advanced_Locomotion.Target.cs",
+		"C:\\Users\\sayan\\Projects\\UE5-Advanced-Locomotion\\Advanced_Locomotion\\Source\\Advanced_LocomotionEditor.Target.cs"
+	],
+	"EngineVersion": "5.6.1"
+}
