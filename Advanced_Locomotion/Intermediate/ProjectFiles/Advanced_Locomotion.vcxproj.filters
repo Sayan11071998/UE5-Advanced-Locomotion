@@ -11,6 +11,7 @@
     <None Include="..\..\Source\Advanced_LocomotionEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +38,36 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Advanced_Locomotion\Advanced_Locomotion.h">
       <Filter>Source\Advanced_Locomotion</Filter>
+    </ClInclude>
+    <Filter Include="Source\Advanced_Locomotion\Private">
+      <UniqueIdentifier>{A7D5D546-10D8-3F2A-8587-9D0441802A09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Advanced_Locomotion\Private\Character">
+      <UniqueIdentifier>{70DD3EF3-B037-3C28-8896-E0BC10A35332}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Advanced_Locomotion\Private\Character\MainCharacter.cpp">
+      <Filter>Source\Advanced_Locomotion\Private\Character</Filter>
+    </ClCompile>
+    <Filter Include="Source\Advanced_Locomotion\Private\GameMode">
+      <UniqueIdentifier>{74BE5A6C-7F34-3827-96BC-78E58F1C2E02}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Advanced_Locomotion\Private\GameMode\MainGameModeBase.cpp">
+      <Filter>Source\Advanced_Locomotion\Private\GameMode</Filter>
+    </ClCompile>
+    <Filter Include="Source\Advanced_Locomotion\Public">
+      <UniqueIdentifier>{B24AF107-7D17-3BF2-8CC9-61E69DD89C39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Advanced_Locomotion\Public\Character">
+      <UniqueIdentifier>{6871C3DE-8833-3E12-AA0E-426A61AC7272}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Advanced_Locomotion\Public\Character\MainCharacter.h">
+      <Filter>Source\Advanced_Locomotion\Public\Character</Filter>
+    </ClInclude>
+    <Filter Include="Source\Advanced_Locomotion\Public\GameMode">
+      <UniqueIdentifier>{CE1338FA-1BC9-3616-B9DD-02E6F53050FE}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Advanced_Locomotion\Public\GameMode\MainGameModeBase.h">
+      <Filter>Source\Advanced_Locomotion\Public\GameMode</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

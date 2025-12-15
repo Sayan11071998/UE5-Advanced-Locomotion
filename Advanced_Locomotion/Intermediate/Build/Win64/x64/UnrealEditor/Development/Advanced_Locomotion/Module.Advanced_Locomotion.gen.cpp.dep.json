@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\advanced_locomotion\\module.advanced_locomotion.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\x64\\advanced_locomotioneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\advanced_locomotion\\definitions.advanced_locomotion.h",
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\unrealeditor\\inc\\advanced_locomotion\\uht\\maingamemodebase.gen.cpp",
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\source\\advanced_locomotion\\public\\gamemode\\maingamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "c:\\program files\\epic games\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "c:\\program files\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "c:\\program files\\epic games\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\unrealeditor\\inc\\advanced_locomotion\\uht\\maingamemodebase.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
