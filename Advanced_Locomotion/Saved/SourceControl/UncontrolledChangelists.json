@@ -155,6 +155,12 @@
 				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/GameMode/BP_MainGameModeBase.uasset",
 				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Materials/M_Transparent.uasset",
 				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/ParagonWraith/Characters/Heroes/Wraith/Meshes/Wraith.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Maps/Sandbox_Basic.umap",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Materials/M_Transparent.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Inputs/IA_Jump.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Inputs/IA_Move.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Inputs/IA_Look.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Inputs/IMC_Default.uasset",
 				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprint/BP_MainCharacter.uasset"
 			]
 		}
