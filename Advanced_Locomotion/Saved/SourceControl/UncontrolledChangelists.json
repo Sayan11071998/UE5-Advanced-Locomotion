@@ -1,0 +1,36 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Characters/BP_MainCharacter.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/ParagonWraith/Characters/Heroes/Wraith/Animations/Jog_Fwd_Start.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Fwd_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Fwd_Stop_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Animation/ABP_MainAnimInstance.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Animation/BlendSpaces/BS_RunningBlendSpace.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Animation/BlendSpaces/BS_JogStart.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Right_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Left_Start.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Left_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStart/Jog_Fwd_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStart/Jog_Left_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStart/Jog_Right_Start_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Fwd_Stop_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Maps/Sandbox_Basic.umap",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Right_Stop.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Left_Stop.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Bwd_Stop.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Bwd_Stop_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Left_Stop_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/JogStop/Jog_Right_Stop_Edited.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Animation/BlendSpaces/BS_JogStop.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Blueprints/Animation/BP_MainAnimInstance.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Fwd_Stop.uasset",
+				"C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Content/Animations/Jog_Fwd_Start.uasset"
+			]
+		}
+	]
+}

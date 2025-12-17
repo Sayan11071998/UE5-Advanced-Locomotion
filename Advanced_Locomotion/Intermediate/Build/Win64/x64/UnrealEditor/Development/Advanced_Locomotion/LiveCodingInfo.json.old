@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.Advanced_Locomotion.gen.cpp.obj": [
+			"Advanced_Locomotion.init.gen.cpp.obj",
+			"MainAnimInstance.gen.cpp.obj",
+			"MainCharacter.gen.cpp.obj",
+			"MainGameModeBase.gen.cpp.obj"
+		]
+	}
+}
