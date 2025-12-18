@@ -6,6 +6,10 @@
 void UMainAnimInstance::NativeInitializeAnimation()
 {
 	MainCharacter = Cast<AMainCharacter>(TryGetPawnOwner());
+	
+	CharacterRotationYaw = 0.f;
+	LastCharacterRotationYaw = 0.f;
+	RootRotationYaw = 0.f;
 }
 
 void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
@@ -27,6 +31,42 @@ void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		if (MainCharacter->GetVelocity().Size() > 0.f)
 		{
 			LastMovementYawDelta = MovementYawDelta;
+		}
+		
+		// Turn-in Place
+		if (Speed > 0.f)
+		{
+			RootRotationYaw = 0.f;
+			CharacterRotationYaw = MainCharacter->GetActorRotation().Yaw;
+			LastCharacterRotationYaw = CharacterRotationYaw;
+			
+			LastTurningCurve = 0.f;
+			TurningCurve = 0.f;
+		}
+		else
+		{
+			LastCharacterRotationYaw = CharacterRotationYaw;
+			CharacterRotationYaw = MainCharacter->GetActorRotation().Yaw;
+		
+			const float CharacterRotationYawDelta = CharacterRotationYaw - LastCharacterRotationYaw;
+			RootRotationYaw -= UKismetMathLibrary::NormalizeAxis(RootRotationYaw - CharacterRotationYawDelta);
+		
+			IsTurning = GetCurveValue(FName(TEXT("IsTurning")));
+		
+			if (IsTurning > 0.f)
+			{
+				LastTurningCurve = TurningCurve;
+				TurningCurve = GetCurveValue(FName(TEXT("Turning")));
+			
+				const float TurningCurveDelta = TurningCurve - LastTurningCurve;
+				RootRotationYaw > 0.f ? RootRotationYaw -= TurningCurveDelta : RootRotationYaw += TurningCurveDelta;
+			
+				if (FMath::Abs(RootRotationYaw) > 90.f)
+				{
+					const float AdditionalRootRotationYaw = FMath::Abs(RootRotationYaw) - 90.f;
+					RootRotationYaw > 0.f ? RootRotationYaw -= AdditionalRootRotationYaw : RootRotationYaw += AdditionalRootRotationYaw;
+				}
+			}
 		}
 	}
 }

@@ -28,6 +28,8 @@ AMainCharacter::AMainCharacter()
 	
 	GetCharacterMovement()->JumpZVelocity = 500.f;
 	GetCharacterMovement()->AirControl = 0.25f;
+	
+	SetWalkAttributes();
 }
 
 void AMainCharacter::Tick(float DeltaTime)
@@ -50,6 +52,9 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	{
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this,  &ACharacter::Jump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this,  &ACharacter::StopJumping);
+		
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this,  &AMainCharacter::Sprint);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this,  &AMainCharacter::Sprint);
 
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this,  &AMainCharacter::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this,  &AMainCharacter::Look);
@@ -86,4 +91,36 @@ void AMainCharacter::Look(const FInputActionValue& Value)
 	// Mouse
 	AddControllerYawInput(LookVector.X);
 	AddControllerPitchInput(LookVector.Y);
+}
+
+void AMainCharacter::Sprint(const FInputActionValue& Value)
+{
+	bool bIsSprinting = Value.Get<bool>();
+	
+	if (bIsSprinting)
+	{
+		SetSprintAttributes();
+	}
+	else
+	{
+		SetWalkAttributes();
+	}
+}
+
+void AMainCharacter::SetWalkAttributes()
+{
+	if (!GetCharacterMovement()) return;
+	
+	GetCharacterMovement()->MaxWalkSpeed = 500.f;
+	GetCharacterMovement()->BrakingDecelerationWalking = 100.f;
+	GetCharacterMovement()->GroundFriction = 2.f;
+}
+
+void AMainCharacter::SetSprintAttributes()
+{
+	if (!GetCharacterMovement()) return;
+	
+	GetCharacterMovement()->MaxWalkSpeed = 900.f;
+	GetCharacterMovement()->BrakingDecelerationWalking = 300.f;
+	GetCharacterMovement()->GroundFriction = 5.f;
 }
