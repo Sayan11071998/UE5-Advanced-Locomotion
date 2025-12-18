@@ -3,3 +3,4 @@
 #include "C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/UnrealEditor/Inc/Advanced_Locomotion/UHT/MainAnimInstance.gen.cpp"
 #include "C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/UnrealEditor/Inc/Advanced_Locomotion/UHT/MainCharacter.gen.cpp"
 #include "C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/UnrealEditor/Inc/Advanced_Locomotion/UHT/MainGameModeBase.gen.cpp"
+#include "C:/Users/sayan/Projects/UE5-Advanced-Locomotion/Advanced_Locomotion/Intermediate/Build/Win64/UnrealEditor/Inc/Advanced_Locomotion/UHT/SprintChordedTrigger.gen.cpp"

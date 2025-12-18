@@ -5,7 +5,8 @@
 			"Advanced_Locomotion.init.gen.cpp.obj",
 			"MainAnimInstance.gen.cpp.obj",
 			"MainCharacter.gen.cpp.obj",
-			"MainGameModeBase.gen.cpp.obj"
+			"MainGameModeBase.gen.cpp.obj",
+			"SprintChordedTrigger.gen.cpp.obj"
 		]
 	}
 }
