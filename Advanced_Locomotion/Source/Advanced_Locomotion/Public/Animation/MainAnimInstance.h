@@ -42,6 +42,12 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Lean", meta = (AllowPrivateAccess = "true"))
 	float LeanYawDelta;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Turn-Hips", meta = (AllowPrivateAccess = "true"))
+	bool bShouldTurnHips;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Turn-Hips", meta = (AllowPrivateAccess = "true"))
+	bool bShouldRunBackward;
+	
 	float CharacterRotationYaw;
 	float LastCharacterRotationYaw;
 	
