@@ -70,6 +70,9 @@ void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		}
 		
 		CalculateLeanYawDelta(DeltaSeconds);
+		
+		bShouldTurnHips = FMath::Abs(MovementYawDelta) < 55.f && bIsAccelerating;
+		bShouldRunBackward = FMath::Abs(MovementYawDelta) > 125.f && bIsAccelerating;
 	}
 }
 

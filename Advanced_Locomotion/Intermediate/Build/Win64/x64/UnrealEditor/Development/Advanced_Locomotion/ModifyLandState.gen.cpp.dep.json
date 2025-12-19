@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\unrealeditor\\inc\\advanced_locomotion\\uht\\modifylandstate.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\x64\\advanced_locomotioneditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\advanced_locomotion\\definitions.advanced_locomotion.h",
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\source\\advanced_locomotion\\public\\animation\\modifylandstate.h",
+            "c:\\users\\sayan\\projects\\ue5-advanced-locomotion\\advanced_locomotion\\intermediate\\build\\win64\\unrealeditor\\inc\\advanced_locomotion\\uht\\modifylandstate.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

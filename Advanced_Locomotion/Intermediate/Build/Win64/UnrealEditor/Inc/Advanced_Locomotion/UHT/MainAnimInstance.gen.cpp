@@ -95,6 +95,16 @@ struct Z_Construct_UClass_UMainAnimInstance_Statics
 		{ "Category", "Lean" },
 		{ "ModuleRelativePath", "Public/Animation/MainAnimInstance.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bShouldTurnHips_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Turn-Hips" },
+		{ "ModuleRelativePath", "Public/Animation/MainAnimInstance.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bShouldRunBackward_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Turn-Hips" },
+		{ "ModuleRelativePath", "Public/Animation/MainAnimInstance.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_Speed;
 	static void NewProp_bIsAccelerating_SetBit(void* Obj);
@@ -105,6 +115,10 @@ struct Z_Construct_UClass_UMainAnimInstance_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_LastMovementYawDelta;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_RootRotationYaw;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_LeanYawDelta;
+	static void NewProp_bShouldTurnHips_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bShouldTurnHips;
+	static void NewProp_bShouldRunBackward_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bShouldRunBackward;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -127,6 +141,16 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMainAnimInstan
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_LastMovementYawDelta = { "LastMovementYawDelta", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainAnimInstance, LastMovementYawDelta), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LastMovementYawDelta_MetaData), NewProp_LastMovementYawDelta_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_RootRotationYaw = { "RootRotationYaw", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainAnimInstance, RootRotationYaw), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RootRotationYaw_MetaData), NewProp_RootRotationYaw_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_LeanYawDelta = { "LeanYawDelta", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMainAnimInstance, LeanYawDelta), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LeanYawDelta_MetaData), NewProp_LeanYawDelta_MetaData) };
+void Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldTurnHips_SetBit(void* Obj)
+{
+	((UMainAnimInstance*)Obj)->bShouldTurnHips = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldTurnHips = { "bShouldTurnHips", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UMainAnimInstance), &Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldTurnHips_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bShouldTurnHips_MetaData), NewProp_bShouldTurnHips_MetaData) };
+void Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldRunBackward_SetBit(void* Obj)
+{
+	((UMainAnimInstance*)Obj)->bShouldRunBackward = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldRunBackward = { "bShouldRunBackward", nullptr, (EPropertyFlags)0x0040000000020015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UMainAnimInstance), &Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldRunBackward_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bShouldRunBackward_MetaData), NewProp_bShouldRunBackward_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainAnimInstance_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_Speed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bIsAccelerating,
@@ -135,6 +159,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMainAnim
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_LastMovementYawDelta,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_RootRotationYaw,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_LeanYawDelta,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldTurnHips,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMainAnimInstance_Statics::NewProp_bShouldRunBackward,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMainAnimInstance_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UMainAnimInstance_Statics::DependentSingletons[])() = {
@@ -174,10 +200,10 @@ UMainAnimInstance::~UMainAnimInstance() {}
 struct Z_CompiledInDeferFile_FID_Users_sayan_Projects_UE5_Advanced_Locomotion_Advanced_Locomotion_Source_Advanced_Locomotion_Public_Animation_MainAnimInstance_h__Script_Advanced_Locomotion_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMainAnimInstance, UMainAnimInstance::StaticClass, TEXT("UMainAnimInstance"), &Z_Registration_Info_UClass_UMainAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainAnimInstance), 4257257372U) },
+		{ Z_Construct_UClass_UMainAnimInstance, UMainAnimInstance::StaticClass, TEXT("UMainAnimInstance"), &Z_Registration_Info_UClass_UMainAnimInstance, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMainAnimInstance), 567031294U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sayan_Projects_UE5_Advanced_Locomotion_Advanced_Locomotion_Source_Advanced_Locomotion_Public_Animation_MainAnimInstance_h__Script_Advanced_Locomotion_2181048116(TEXT("/Script/Advanced_Locomotion"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_sayan_Projects_UE5_Advanced_Locomotion_Advanced_Locomotion_Source_Advanced_Locomotion_Public_Animation_MainAnimInstance_h__Script_Advanced_Locomotion_1462563371(TEXT("/Script/Advanced_Locomotion"),
 	Z_CompiledInDeferFile_FID_Users_sayan_Projects_UE5_Advanced_Locomotion_Advanced_Locomotion_Source_Advanced_Locomotion_Public_Animation_MainAnimInstance_h__Script_Advanced_Locomotion_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_sayan_Projects_UE5_Advanced_Locomotion_Advanced_Locomotion_Source_Advanced_Locomotion_Public_Animation_MainAnimInstance_h__Script_Advanced_Locomotion_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
