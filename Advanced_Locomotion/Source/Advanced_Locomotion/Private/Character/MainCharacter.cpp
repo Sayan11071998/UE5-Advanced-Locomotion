@@ -120,7 +120,7 @@ void AMainCharacter::SetSprintAttributes()
 {
 	if (!GetCharacterMovement()) return;
 	
-	GetCharacterMovement()->MaxWalkSpeed = 900.f;
-	GetCharacterMovement()->BrakingDecelerationWalking = 300.f;
-	GetCharacterMovement()->GroundFriction = 5.f;
+	GetCharacterMovement()->MaxWalkSpeed = 800.f;
+	GetCharacterMovement()->BrakingDecelerationWalking = 360.f;
+	GetCharacterMovement()->GroundFriction = 5.5f;
 }
