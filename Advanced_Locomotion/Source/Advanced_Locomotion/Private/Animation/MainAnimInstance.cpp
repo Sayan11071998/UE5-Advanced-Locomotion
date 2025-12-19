@@ -34,7 +34,7 @@ void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 		}
 		
 		// Turn-in Place
-		if (Speed > 0.f)
+		if (Speed > 0.f || bIsInAir)
 		{
 			RootRotationYaw = 0.f;
 			CharacterRotationYaw = MainCharacter->GetActorRotation().Yaw;
@@ -68,5 +68,18 @@ void UMainAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
 				}
 			}
 		}
+		
+		CalculateLeanYawDelta(DeltaSeconds);
 	}
+}
+
+void UMainAnimInstance::CalculateLeanYawDelta(float DeltaSeconds)
+{
+	LeanLastCharacterRotation = LeanCharacterRotation;
+	LeanCharacterRotation = MainCharacter->GetActorRotation();
+	
+	const float LeanTarget =
+		UKismetMathLibrary::NormalizedDeltaRotator(LeanCharacterRotation, LeanLastCharacterRotation).Yaw / DeltaSeconds;
+	
+	LeanYawDelta = FMath::Clamp(FMath::FInterpTo(LeanYawDelta, LeanTarget, DeltaSeconds, 6.f), -90.f, 90.f);
 }
