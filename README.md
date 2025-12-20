@@ -278,3 +278,8 @@ Key variables exposed to the animation blueprint:
 ---
 
 *A learning project demonstrating advanced locomotion techniques and professional C++ practices for Unreal Engine 5.*
+
+---
+
+[![Gameplay Video](https://img.youtube.com/vi/9M8qPVO0dos/maxresdefault.jpg)](https://youtu.be/9M8qPVO0dos)
+### [Watch this video on YouTube](https://youtu.be/9M8qPVO0dos)
