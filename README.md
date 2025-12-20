@@ -181,10 +181,10 @@ Handles player input and movement. Uses UE5's Enhanced Input System with custom 
 | Walk  | 500       | 100           | 2.0             |
 | Sprint| 800       | 360           | 5.5             |
 
-![Input Mapping](screenshot1.png)
+<img width="1697" height="922" alt="Image" src="https://github.com/user-attachments/assets/52eac0e4-132f-4b4c-b1cd-e57c275ecb5f" />
 *Input mapping context showing Move, Look, Jump, and Sprint actions*
 
-![Sprint Setup](screenshot2.png)
+<img width="1652" height="350" alt="Image" src="https://github.com/user-attachments/assets/26de3e75-87a4-4e3d-9fe2-ee709220d401" />
 *Sprint action with custom chorded trigger configuration*
 
 ### Animation System
@@ -219,7 +219,7 @@ if (Speed == 0 && !bIsInAir) {
 - `bShouldTurnHips`: Activated when moving within 55° of aim direction
 - `bShouldRunBackward`: Activated when moving opposite to aim (>125°)
 
-![Animation Blueprint](screenshot3.png)
+<img width="931" height="737" alt="Image" src="https://github.com/user-attachments/assets/0a23a4f3-4eff-40ee-b2f6-6e29bcad310b" />
 *Animation blueprint showing locomotion state machine with turn-in-place*
 
 ### Landing System
