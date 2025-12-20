@@ -19,7 +19,7 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 │                     Game Framework                        │
 ├───────────────────────────────────────────────────────────┤
 │  MainGameModeBase                                         │
-│  └─> Manages game rules and player spawning              │
+│  └─> Manages game rules and player spawning               │
 └───────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -27,17 +27,17 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 │                    Character Layer                        │
 ├───────────────────────────────────────────────────────────┤
 │  MainCharacter (ACharacter)                               │
-│  ├─> Camera System (SpringArm + Camera)                  │
-│  ├─> Input Handling (Enhanced Input)                     │
-│  ├─> Movement Logic                                      │
-│  │   ├─> Walk Attributes                                 │
-│  │   ├─> Sprint Attributes                               │
-│  │   └─> Character Movement Component                    │
-│  └─> Input Actions                                       │
-│      ├─> Move                                            │
-│      ├─> Look                                            │
-│      ├─> Jump                                            │
-│      └─> Sprint                                          │
+│  ├─> Camera System (SpringArm + Camera)                   │
+│  ├─> Input Handling (Enhanced Input)                      │
+│  ├─> Movement Logic                                       │
+│  │   ├─> Walk Attributes                                  │
+│  │   ├─> Sprint Attributes                                │
+│  │   └─> Character Movement Component                     │
+│  └─> Input Actions                                        │
+│      ├─> Move                                             │
+│      ├─> Look                                             │
+│      ├─> Jump                                             │
+│      └─> Sprint                                           │
 └───────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -45,22 +45,22 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 │                   Animation Layer                         │
 ├───────────────────────────────────────────────────────────┤
 │  MainAnimInstance (UAnimInstance)                         │
-│  ├─> Movement Tracking                                   │
-│  │   ├─> Speed                                           │
-│  │   ├─> Acceleration                                    │
-│  │   └─> Air State                                       │
-│  ├─> Direction Calculation                               │
-│  │   ├─> Movement Yaw Delta                              │
-│  │   └─> Relative Aim Direction                          │
-│  ├─> Turn-in-Place Logic                                 │
-│  │   ├─> Root Rotation Yaw                               │
-│  │   ├─> Turning Curve Processing                        │
-│  │   └─> 90° Rotation Clamping                           │
-│  ├─> Lean System                                         │
-│  │   └─> Dynamic Yaw Delta Interpolation                 │
-│  └─> Hip Rotation Logic                                  │
-│      ├─> Should Turn Hips                                │
-│      └─> Should Run Backward                             │
+│  ├─> Movement Tracking                                    │
+│  │   ├─> Speed                                            │
+│  │   ├─> Acceleration                                     │
+│  │   └─> Air State                                        │
+│  ├─> Direction Calculation                                │
+│  │   ├─> Movement Yaw Delta                               │
+│  │   └─> Relative Aim Direction                           │
+│  ├─> Turn-in-Place Logic                                  │
+│  │   ├─> Root Rotation Yaw                                │
+│  │   ├─> Turning Curve Processing                         │
+│  │   └─> 90° Rotation Clamping                            │
+│  ├─> Lean System                                          │
+│  │   └─> Dynamic Yaw Delta Interpolation                  │
+│  └─> Hip Rotation Logic                                   │
+│      ├─> Should Turn Hips                                 │
+│      └─> Should Run Backward                              │
 └───────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -68,14 +68,14 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 │              Animation Notify System                      │
 ├───────────────────────────────────────────────────────────┤
 │  ModifyLandState (UAnimNotify)                            │
-│  └─> Adjusts friction & braking on landing               │
+│  └─> Adjusts friction & braking on landing                │
 └───────────────────────────────────────────────────────────┘
 
 ┌───────────────────────────────────────────────────────────┐
 │                  Input System Layer                       │
 ├───────────────────────────────────────────────────────────┤
 │  SprintChordedTrigger (UInputTrigger)                     │
-│  └─> Custom trigger for Move + Sprint combination        │
+│  └─> Custom trigger for Move + Sprint combination         │
 └───────────────────────────────────────────────────────────┘
 ```
 
@@ -91,12 +91,12 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 ┌─────────────────────────────────────────────┐
 │     Enhanced Input System                   │
 │  ┌────────────────────────────────────────┐ │
-│  │  Input Mapping Context             │    │
-│  │  ├─> Move Action                   │    │
-│  │  ├─> Look Action                   │    │
-│  │  ├─> Jump Action                   │    │
-│  │  └─> Sprint Action                 │    │
-│  │      └─> SprintChordedTrigger      │    │
+│  │  Input Mapping Context                 │ │
+│  │  ├─> Move Action                       │ │
+│  │  ├─> Look Action                       │ │
+│  │  ├─> Jump Action                       │ │
+│  │  └─> Sprint Action                     │ │
+│  │      └─> SprintChordedTrigger          │ │
 │  └────────────────────────────────────────┘ │
 └──────────────┬──────────────────────────────┘
               │
@@ -104,38 +104,38 @@ A third-person character controller for Unreal Engine 5 with smooth animations, 
 ┌─────────────────────────────────────────────┐
 │         MainCharacter                       │
 │  ┌────────────────────────────────────────┐ │
-│  │  Movement Processing               │    │
-│  │  ├─> AddMovementInput()            │    │
-│  │  ├─> AddControllerRotation()       │    │
-│  │  └─> CharacterMovementComponent    │    │
-│  │      ├─> MaxWalkSpeed              │    │
-│  │      ├─> BrakingDeceleration       │    │
-│  │      └─> GroundFriction            │    │
+│  │  Movement Processing                   │ │
+│  │  ├─> AddMovementInput()                │ │
+│  │  ├─> AddControllerRotation()           │ │
+│  │  └─> CharacterMovementComponent        │ │
+│  │      ├─> MaxWalkSpeed                  │ │
+│  │      ├─> BrakingDeceleration           │ │
+│  │      └─> GroundFriction                │ │
 │  └────────────────────────────────────────┘ │
 └──────────────┬──────────────────────────────┘
               │
               ▼
 ┌────────────────────────────────────────────────┐
-│         MainAnimInstance                        │
-│  ┌────────────────────────────────────────────┐ │
-│  │  NativeUpdateAnimation()               │    │
-│  │  ├─> Calculate Speed & Direction       │    │
-│  │  ├─> Process Turn-in-Place             │    │
-│  │  ├─> Calculate Lean                    │    │
-│  │  └─> Update Hip Rotation Logic         │    │
-│  └────────────────────────────────────────────┘ │
+│         MainAnimInstance                       │
+│  ┌────────────────────────────────────────────┐│
+│  │  NativeUpdateAnimation()                   ││
+│  │  ├─> Calculate Speed & Direction           ││
+│  │  ├─> Process Turn-in-Place                 ││
+│  │  ├─> Calculate Lean                        ││
+│  │  └─> Update Hip Rotation Logic             ││
+│  └────────────────────────────────────────────┘│
 └──────────────┬─────────────────────────────────┘
               │
               ▼
 ┌─────────────────────────────────────────────┐
 │     Animation Blueprint                     │
 │  ┌────────────────────────────────────────┐ │
-│  │  State Machine                     │    │
-│  │  ├─> Idle/Walk/Run Blendspace      │    │
-│  │  ├─> Jump/Fall States              │    │
-│  │  ├─> Turn-in-Place Animations      │    │
-│  │  └─> Landing Animation             │    │
-│  │      └─> ModifyLandState Notify    │    │
+│  │  State Machine                         │ │
+│  │  ├─> Idle/Walk/Run Blendspace          │ │
+│  │  ├─> Jump/Fall States                  │ │
+│  │  ├─> Turn-in-Place Animations          │ │
+│  │  └─> Landing Animation                 │ │
+│  │      └─> ModifyLandState Notify        │ │
 │  └────────────────────────────────────────┘ │
 └─────────────────────────────────────────────┘
 ```
