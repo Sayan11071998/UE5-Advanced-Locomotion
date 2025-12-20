@@ -1,99 +1,85 @@
 # Advanced Locomotion System
 
-A comprehensive third-person character locomotion system built in Unreal Engine 5 using C++. This project implements advanced animation techniques including turn-in-place, leaning, inverse kinematics, and dynamic movement blending.
+A third-person character controller for Unreal Engine 5 with smooth animations, turn-in-place, inverse kinematics, and dynamic movement blending.
 
-## 📋 Table of Contents
+## Features
 
-- [Features](#features)
-- [Code Architecture](#code-architecture)
-- [Project Structure](#project-structure)
-- [Core Systems](#core-systems)
-- [Setup & Installation](#setup--installation)
-- [Usage](#usage)
-- [Code Design Patterns](#code-design-patterns)
-- [Best Practices](#best-practices)
+- **Smooth Movement**: Walking and sprinting with dynamic transitions
+- **Turn-in-Place**: Realistic rotation when standing still using root motion
+- **Inverse Kinematics**: Feet adapt to terrain for proper ground contact
+- **Lean System**: Character leans based on rotation speed
+- **Hip Rotation**: Contextual hip turning for different movement directions
+- **Landing System**: Custom animation notify for landing behavior
+- **Enhanced Input**: UE5's modern input system with custom sprint trigger
 
-## ✨ Features
-
-- **Advanced Character Movement**: Smooth walking and sprinting with dynamic speed transitions
-- **Turn-in-Place System**: Realistic stationary rotation with root motion
-- **Inverse Kinematics**: Character feet adapt to terrain for realistic ground contact
-- **Lean System**: Dynamic leaning based on rotation speed for natural movement feel
-- **Hip Rotation**: Contextual hip turning for movement directions
-- **Landing State Management**: Custom animation notify for landing behavior
-- **Enhanced Input System**: Modern Unreal Engine 5 input mapping
-- **Sprint Chorded Trigger**: Custom input trigger for sprint+move combination
-
-## 🏗️ Code Architecture
-
-### Architecture Diagram
+## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                     Game Framework                           │
-├─────────────────────────────────────────────────────────────┤
-│  MainGameModeBase                                            │
-│  └─> Manages game rules and player spawning                 │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                     Game Framework                        │
+├───────────────────────────────────────────────────────────┤
+│  MainGameModeBase                                         │
+│  └─> Manages game rules and player spawning              │
+└───────────────────────────────────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    Character Layer                           │
-├─────────────────────────────────────────────────────────────┤
-│  MainCharacter (ACharacter)                                  │
-│  ├─> Camera System (SpringArm + Camera)                     │
-│  ├─> Input Handling (Enhanced Input)                        │
-│  ├─> Movement Logic                                         │
-│  │   ├─> Walk Attributes                                    │
-│  │   ├─> Sprint Attributes                                  │
-│  │   └─> Character Movement Component                       │
-│  └─> Input Actions                                          │
-│      ├─> Move                                               │
-│      ├─> Look                                               │
-│      ├─> Jump                                               │
-│      └─> Sprint                                             │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                    Character Layer                        │
+├───────────────────────────────────────────────────────────┤
+│  MainCharacter (ACharacter)                               │
+│  ├─> Camera System (SpringArm + Camera)                  │
+│  ├─> Input Handling (Enhanced Input)                     │
+│  ├─> Movement Logic                                      │
+│  │   ├─> Walk Attributes                                 │
+│  │   ├─> Sprint Attributes                               │
+│  │   └─> Character Movement Component                    │
+│  └─> Input Actions                                       │
+│      ├─> Move                                            │
+│      ├─> Look                                            │
+│      ├─> Jump                                            │
+│      └─> Sprint                                          │
+└───────────────────────────────────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   Animation Layer                            │
-├─────────────────────────────────────────────────────────────┤
-│  MainAnimInstance (UAnimInstance)                            │
-│  ├─> Movement Tracking                                      │
-│  │   ├─> Speed                                              │
-│  │   ├─> Acceleration                                       │
-│  │   └─> Air State                                          │
-│  ├─> Direction Calculation                                  │
-│  │   ├─> Movement Yaw Delta                                 │
-│  │   └─> Relative Aim Direction                             │
-│  ├─> Turn-in-Place Logic                                    │
-│  │   ├─> Root Rotation Yaw                                  │
-│  │   ├─> Turning Curve Processing                           │
-│  │   └─> 90° Rotation Clamping                              │
-│  ├─> Lean System                                            │
-│  │   └─> Dynamic Yaw Delta Interpolation                    │
-│  └─> Hip Rotation Logic                                     │
-│      ├─> Should Turn Hips                                   │
-│      └─> Should Run Backward                                │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                   Animation Layer                         │
+├───────────────────────────────────────────────────────────┤
+│  MainAnimInstance (UAnimInstance)                         │
+│  ├─> Movement Tracking                                   │
+│  │   ├─> Speed                                           │
+│  │   ├─> Acceleration                                    │
+│  │   └─> Air State                                       │
+│  ├─> Direction Calculation                               │
+│  │   ├─> Movement Yaw Delta                              │
+│  │   └─> Relative Aim Direction                          │
+│  ├─> Turn-in-Place Logic                                 │
+│  │   ├─> Root Rotation Yaw                               │
+│  │   ├─> Turning Curve Processing                        │
+│  │   └─> 90° Rotation Clamping                           │
+│  ├─> Lean System                                         │
+│  │   └─> Dynamic Yaw Delta Interpolation                 │
+│  └─> Hip Rotation Logic                                  │
+│      ├─> Should Turn Hips                                │
+│      └─> Should Run Backward                             │
+└───────────────────────────────────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│              Animation Notify System                         │
-├─────────────────────────────────────────────────────────────┤
-│  ModifyLandState (UAnimNotify)                               │
-│  └─> Adjusts friction & braking on landing                  │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│              Animation Notify System                      │
+├───────────────────────────────────────────────────────────┤
+│  ModifyLandState (UAnimNotify)                            │
+│  └─> Adjusts friction & braking on landing               │
+└───────────────────────────────────────────────────────────┘
 
-┌─────────────────────────────────────────────────────────────┐
-│                  Input System Layer                          │
-├─────────────────────────────────────────────────────────────┤
-│  SprintChordedTrigger (UInputTrigger)                        │
-│  └─> Custom trigger for Move + Sprint combination           │
-└─────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────────────────┐
+│                  Input System Layer                       │
+├───────────────────────────────────────────────────────────┤
+│  SprintChordedTrigger (UInputTrigger)                     │
+│  └─> Custom trigger for Move + Sprint combination        │
+└───────────────────────────────────────────────────────────┘
 ```
 
-### System Flow Diagram
+### System Flow
 
 ```
 ┌──────────────┐
@@ -104,20 +90,20 @@ A comprehensive third-person character locomotion system built in Unreal Engine 
        ▼
 ┌─────────────────────────────────────────────┐
 │     Enhanced Input System                   │
-│  ┌────────────────────────────────────┐    │
+│  ┌────────────────────────────────────────┐ │
 │  │  Input Mapping Context             │    │
 │  │  ├─> Move Action                   │    │
 │  │  ├─> Look Action                   │    │
 │  │  ├─> Jump Action                   │    │
 │  │  └─> Sprint Action                 │    │
 │  │      └─> SprintChordedTrigger      │    │
-│  └────────────────────────────────────┘    │
-└─────────────┬───────────────────────────────┘
+│  └────────────────────────────────────────┘ │
+└──────────────┬──────────────────────────────┘
               │
               ▼
 ┌─────────────────────────────────────────────┐
 │         MainCharacter                       │
-│  ┌────────────────────────────────────┐    │
+│  ┌────────────────────────────────────────┐ │
 │  │  Movement Processing               │    │
 │  │  ├─> AddMovementInput()            │    │
 │  │  ├─> AddControllerRotation()       │    │
@@ -125,36 +111,36 @@ A comprehensive third-person character locomotion system built in Unreal Engine 
 │  │      ├─> MaxWalkSpeed              │    │
 │  │      ├─> BrakingDeceleration       │    │
 │  │      └─> GroundFriction            │    │
-│  └────────────────────────────────────┘    │
-└─────────────┬───────────────────────────────┘
+│  └────────────────────────────────────────┘ │
+└──────────────┬──────────────────────────────┘
               │
               ▼
-┌─────────────────────────────────────────────────┐
+┌────────────────────────────────────────────────┐
 │         MainAnimInstance                        │
-│  ┌────────────────────────────────────────┐    │
+│  ┌────────────────────────────────────────────┐ │
 │  │  NativeUpdateAnimation()               │    │
 │  │  ├─> Calculate Speed & Direction       │    │
 │  │  ├─> Process Turn-in-Place             │    │
 │  │  ├─> Calculate Lean                    │    │
 │  │  └─> Update Hip Rotation Logic         │    │
-│  └────────────────────────────────────────┘    │
-└─────────────┬───────────────────────────────────┘
+│  └────────────────────────────────────────────┘ │
+└──────────────┬─────────────────────────────────┘
               │
               ▼
 ┌─────────────────────────────────────────────┐
 │     Animation Blueprint                     │
-│  ┌────────────────────────────────────┐    │
+│  ┌────────────────────────────────────────┐ │
 │  │  State Machine                     │    │
 │  │  ├─> Idle/Walk/Run Blendspace      │    │
 │  │  ├─> Jump/Fall States              │    │
 │  │  ├─> Turn-in-Place Animations      │    │
 │  │  └─> Landing Animation             │    │
 │  │      └─> ModifyLandState Notify    │    │
-│  └────────────────────────────────────┘    │
+│  └────────────────────────────────────────┘ │
 └─────────────────────────────────────────────┘
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Advanced_Locomotion/
@@ -170,32 +156,23 @@ Advanced_Locomotion/
 │       │   │   └── MainGameModeBase.h
 │       │   └── Input/
 │       │       └── SprintChordedTrigger.h
-│       ├── Private/
-│       │   ├── Character/
-│       │   │   └── MainCharacter.cpp
-│       │   ├── Animation/
-│       │   │   ├── MainAnimInstance.cpp
-│       │   │   └── ModifyLandState.cpp
-│       │   ├── GameMode/
-│       │   │   └── MainGameModeBase.cpp
-│       │   └── Input/
-│       │       └── SprintChordedTrigger.cpp
-│       ├── Advanced_Locomotion.Build.cs
-│       ├── Advanced_Locomotion.cpp
-│       └── Advanced_Locomotion.h
+│       └── Private/
+│           ├── Character/
+│           │   └── MainCharacter.cpp
+│           ├── Animation/
+│           │   ├── MainAnimInstance.cpp
+│           │   └── ModifyLandState.cpp
+│           ├── GameMode/
+│           │   └── MainGameModeBase.cpp
+│           └── Input/
+│               └── SprintChordedTrigger.cpp
 ```
 
-## 🎯 Core Systems
+## Core Systems
 
-### 1. Character System (`MainCharacter`)
+### Character System
 
-The main character class handles player input and movement configuration.
-
-**Key Features:**
-- Third-person camera setup with spring arm
-- Enhanced Input System integration
-- Dynamic movement attributes (walk/sprint)
-- Input action bindings
+Handles player input and movement. Uses UE5's Enhanced Input System with custom triggers.
 
 **Movement Attributes:**
 
@@ -204,9 +181,15 @@ The main character class handles player input and movement configuration.
 | Walk  | 500       | 100           | 2.0             |
 | Sprint| 800       | 360           | 5.5             |
 
-### 2. Animation System (`MainAnimInstance`)
+![Input Mapping](screenshot1.png)
+*Input mapping context showing Move, Look, Jump, and Sprint actions*
 
-The animation instance drives all character animations based on movement state.
+![Sprint Setup](screenshot2.png)
+*Sprint action with custom chorded trigger configuration*
+
+### Animation System
+
+The animation instance calculates all movement-related values and drives the animation blueprint.
 
 **Turn-in-Place Algorithm:**
 ```cpp
@@ -228,180 +211,70 @@ if (Speed == 0 && !bIsInAir) {
 
 **Lean System:**
 - Calculates rotation velocity over time
-- Interpolates smoothly to target lean angle
+- Smoothly interpolates to target lean angle
 - Clamped between -90° and 90°
-- Provides natural weight-shifting during turns
+- Creates natural weight-shifting during turns
 
-**Hip Rotation Logic:**
+**Hip Rotation:**
 - `bShouldTurnHips`: Activated when moving within 55° of aim direction
-- `bShouldRunBackward`: Activated when moving opposite aim direction (>125°)
+- `bShouldRunBackward`: Activated when moving opposite to aim (>125°)
 
-### 3. Inverse Kinematics
+![Animation Blueprint](screenshot3.png)
+*Animation blueprint showing locomotion state machine with turn-in-place*
 
-While not explicitly shown in the C++ code, the system is designed to support IK through:
-- Proper foot placement on uneven terrain
-- Ground adaptation during movement
-- Natural leg extension during animations
+### Landing System
 
-*IK setup would typically be configured in the Animation Blueprint using Control Rig or IK nodes.*
-
-### 4. Landing System (`ModifyLandState`)
-
-Animation notify that adjusts movement properties on landing:
+The `ModifyLandState` animation notify adjusts movement properties when landing:
 - Increases braking deceleration (5x walk speed)
 - Increases ground friction to 20.0
-- Creates realistic landing feel with quick deceleration
+- Creates a punchy, responsive landing feel
 
-### 5. Custom Input Trigger (`SprintChordedTrigger`)
+### Custom Sprint Trigger
 
-Implements a chorded input trigger that requires both:
-- Movement input (forward/backward/strafe)
-- Sprint button held
+The `SprintChordedTrigger` requires both conditions:
+- Movement input active (WASD)
+- Sprint button held (Shift)
 
-Only triggers when both conditions are met simultaneously.
+Only fires when both are true simultaneously.
 
-## 🚀 Setup & Installation
+## Usage
 
-### Prerequisites
-- Unreal Engine 5.0 or higher
-- Visual Studio 2022 (or compatible IDE)
-- Basic knowledge of C++ and Unreal Engine
-
-### Installation Steps
-
-1. **Clone or download the project**
-   ```bash
-   git clone <repository-url>
-   ```
-
-2. **Generate project files**
-   - Right-click on `Advanced_Locomotion.uproject`
-   - Select "Generate Visual Studio project files"
-
-3. **Build the project**
-   - Open `Advanced_Locomotion.sln` in Visual Studio
-   - Build the solution (Development Editor configuration)
-
-4. **Open in Unreal Editor**
-   - Double-click `Advanced_Locomotion.uproject`
-
-### Required Setup in Unreal Editor
-
-1. **Input Mapping Context**
-   - Create Input Mapping Context asset
-   - Configure Move, Look, Jump, and Sprint actions
-
-2. **Animation Blueprint**
-   - Create Animation Blueprint based on `MainAnimInstance`
-   - Set up state machine with idle, walk, run, jump, and turn-in-place states
-   - Add IK setup for foot placement
-   - Configure turn-in-place animations with "IsTurning" and "Turning" curves
-
-3. **Character Blueprint**
-   - Create Blueprint based on `MainCharacter`
-   - Assign camera components
-   - Set Input Mapping Context
-   - Assign Input Actions
-
-## 💻 Usage
-
-### Basic Movement
-- **WASD**: Move character
+### Controls
+- **WASD**: Move
 - **Mouse**: Look around
 - **Space**: Jump
-- **Shift**: Sprint (hold while moving)
+- **Shift + WASD**: Sprint
 
-### Animation Variables Exposed to Blueprint
+### Animation Variables
+
+Key variables exposed to the animation blueprint:
 
 | Variable | Type | Description |
 |----------|------|-------------|
 | Speed | Float | Current movement speed |
 | bIsAccelerating | Bool | Is character accelerating |
-| bIsInAir | Bool | Is character in air |
-| MovementYawDelta | Float | Angle between movement and aim |
+| bIsInAir | Bool | Is character airborne |
+| MovementYawDelta | Float | Angle between movement and aim direction |
 | RootRotationYaw | Float | Turn-in-place rotation offset |
-| LeanYawDelta | Float | Dynamic lean angle |
-| bShouldTurnHips | Bool | Should rotate hips to movement |
+| LeanYawDelta | Float | Dynamic lean angle for weight shift |
+| bShouldTurnHips | Bool | Should rotate hips toward movement |
 | bShouldRunBackward | Bool | Should play backward run animation |
 
-## 🎨 Code Design Patterns
+## Code Highlights
 
-### 1. **Separation of Concerns**
-- Character handles input and movement configuration
-- AnimInstance handles all animation logic
-- Clear boundary between gameplay and animation systems
+### Design Patterns
+- **Separation of Concerns**: Character handles input, AnimInstance handles animation
+- **Component-Based**: Leverages UE's component system
+- **Data-Driven**: Animation curves drive turn-in-place, variables exposed for designers
+- **Event-Driven**: Animation notifies trigger state changes
 
-### 2. **Component-Based Architecture**
-- Uses Unreal's component system (SpringArm, Camera)
-- Leverages CharacterMovementComponent for physics
-
-### 3. **Data-Driven Design**
-- Movement attributes easily configurable
-- Animation curves drive turn-in-place behavior
-- Blueprint-exposed variables for designer control
-
-### 4. **State Management**
-- Clean state transitions (walk/sprint)
-- Stateless animation updates (recalculated each frame)
-
-### 5. **Event-Driven System**
-- Animation notifies for state changes
-- Input action callbacks for responsive controls
-
-## ✅ Best Practices Implemented
-
-### Code Quality
-- ✅ **Proper header organization** (Public/Private separation)
-- ✅ **UPROPERTY macros** for Blueprint integration
-- ✅ **Null checks** before accessing pointers
-- ✅ **TObjectPtr** for automatic garbage collection
-- ✅ **Const correctness** in parameter passing
-- ✅ **Forward declarations** to reduce compile times
-
-### Performance
-- ✅ **Cached references** (MainCharacter pointer in AnimInstance)
-- ✅ **Efficient calculations** (velocity with Z zeroed)
-- ✅ **Interpolation** for smooth visual transitions
-- ✅ **Early returns** to avoid unnecessary processing
-
-### Unreal Engine Integration
-- ✅ **Enhanced Input System** (modern UE5 approach)
-- ✅ **Animation Blueprint integration**
-- ✅ **Custom Input Triggers**
-- ✅ **Animation Notifies** for event-driven behavior
-- ✅ **CharacterMovementComponent** for physics-accurate movement
-
-### Maintainability
-- ✅ **Clear naming conventions**
-- ✅ **Logical file structure**
-- ✅ **Modular systems** (easy to extend/modify)
-- ✅ **Encapsulation** (private member variables)
-
-## 🔧 Customization
-
-### Adding New Movement States
-
-1. Add state variables to `MainCharacter.h`
-2. Implement state change logic in `MainCharacter.cpp`
-3. Expose variables in `MainAnimInstance.h`
-4. Calculate values in `NativeUpdateAnimation()`
-5. Use in Animation Blueprint
-
-### Modifying Movement Feel
-
-Adjust these values in `SetWalkAttributes()` and `SetSprintAttributes()`:
-- `MaxWalkSpeed`: How fast the character moves
-- `BrakingDecelerationWalking`: How quickly character stops
-- `GroundFriction`: How much control while moving
-
-## 📝 License
-
-Copyright Epic Games, Inc. All Rights Reserved.
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow Unreal Engine C++ coding standards when submitting pull requests.
+### Best Practices
+- Proper header organization (Public/Private)
+- Blueprint integration with UPROPERTY macros
+- Cached references for performance
+- Smooth interpolation for visual quality
+- Modern Enhanced Input System
 
 ---
 
-**Note**: This is a learning project demonstrating advanced locomotion techniques in Unreal Engine 5. It showcases professional C++ practices and animation programming patterns commonly used in AAA game development.
+*A learning project demonstrating advanced locomotion techniques and professional C++ practices for Unreal Engine 5.*
